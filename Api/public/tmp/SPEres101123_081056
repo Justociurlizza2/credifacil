@@ -1,0 +1,104 @@
+{
+    "error_fedex": {
+        "transactionId": "beb64c88-1e7b-4f3a-b50e-de4dab4f0f1a",
+        "errors": [
+            {
+                "code": "SHIPPER.STATEORPROVINCECODE.INVALID",
+                "message": "Shipper State or Province code is invalid. Please update and try again."
+            }
+        ]
+    },
+    "respuesta": {
+        "peticion": {
+            "token": "f8f078ccbdd65780d9b117b031d35ee8",
+            "origen": {
+                "iso_pais": "MX",
+                "clave_localidad": 1,
+                "clave_municipio": 0,
+                "cruce_1": "Calle 1",
+                "cruce_2": "Calle 2",
+                "nombre": "JUAN PEDRO JUAN MATEO",
+                "rfc": "XAXX010101000",
+                "telefono": "9621173386",
+                "calle": "Central Norte ",
+                "numero_exterior": "64",
+                "numero_interior": "0",
+                "cp": "30700",
+                "ciudad": "Huixtla",
+                "colonia": "Centro",
+                "iso_estado": "CHS",
+                "descripcion": "Paqueteria don Mateo",
+                "referencia": "",
+                "clave_colonia": "0001"
+            },
+            "destino": {
+                "iso_pais": "MX",
+                "clave_localidad": 1,
+                "clave_municipio": 0,
+                "cruce_1": "Calle 1",
+                "cruce_2": "Calle 2",
+                "nombre": "JUAN PEDRO JUAN MATEO",
+                "rfc": "XAXX010101000",
+                "telefono": "9621173386",
+                "calle": "Central Norte ",
+                "numero_exterior": "64",
+                "numero_interior": "0",
+                "cp": "30700",
+                "ciudad": "Huixtla",
+                "colonia": "Centro",
+                "iso_estado": "CHS",
+                "descripcion": "Paqueteria don Mateo",
+                "clave_colonia": "0001"
+            },
+            "paquete": {
+                "pais_origen": "MX",
+                "pais_destino": "MX",
+                "tipo_paquete": 1,
+                "contenido": "Mercadería",
+                "contenido_detallado": "Mercancías",
+                "seguro": 0,
+                "valor_declarado": 0,
+                "pesof": 1,
+                "cp_origen": "30700",
+                "cp_destino": "30700",
+                "alto": "0",
+                "ancho": "0",
+                "largo": "0",
+                "pesov": 0,
+                "peso": 1,
+                "idServicio": 3,
+                "precio": 222.4
+            },
+            "impresion": {
+                "tipo_impresion": 2,
+                "tipo_impresora": "ZPLII",
+                "tipo_papel": "PAPER_7X4.75"
+            },
+            "items": [
+                {
+                    "clave_producto": "10010010",
+                    "descripcion_producto": "Mercadería",
+                    "clave_unidad": "ME",
+                    "cantidad_producto": "1",
+                    "alto_producto": "10",
+                    "ancho_producto": "10",
+                    "largo_producto": "10",
+                    "valor_producto": "200",
+                    "peso_producto": "1"
+                }
+            ]
+        },
+        "pedido": {
+            "idPedido": "1415",
+            "subtotal": "139.00",
+            "descuento": "0.00",
+            "zona_extendida": "FALSE",
+            "precio_zona_extendida": "0.00",
+            "Tipo Cotización": "Zonas",
+            "Zona": "2",
+            "total": "139.00",
+            "numero_guia": ""
+        },
+        "etiqueta": "http://qa.superenvios.mx/files/pdf/.pdf"
+    }
+}

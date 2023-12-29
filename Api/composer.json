@@ -1,0 +1,21 @@
+{
+    "require": {
+        "guzzlehttp/guzzle": "^7.0",
+        "vlucas/phpdotenv": "^5.4",
+        "firebase/php-jwt": "^5.3",
+        "phpmailer/phpmailer": "^6.8",
+        "phpoffice/phpspreadsheet": "^1.27",
+        "mpdf/mpdf": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "Bash\\": "Bash/",
+            "Models\\": "Models/",
+            "Controllers\\": "Controllers/",
+            "Services\\": "Services/",
+            "BusinessObjects\\": "BusinessObjects/",
+            "Router\\": "Router/"
+        }
+    }
+}

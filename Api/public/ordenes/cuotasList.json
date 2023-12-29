@@ -1,0 +1,35 @@
+{
+	"0": {
+		"cuota": 213.33,
+		"cuotas": 3,
+		"ultimaQ": 213.34,
+		"tasa": 0.04,
+		"inicio": "2023-12-27",
+		"periodo": 2,
+		"residuo": 0.01,
+		"monto": 640,
+		"confirm": 640		
+	},
+	"1": {
+		"cuota": 213.33,
+		"cuotas": 3,
+		"ultimaQ": 213.34,
+		"tasa": 0.04,
+		"inicio": "2023-12-29",
+		"periodo": 2,
+		"residuo": 0.01,
+		"monto": 640,
+		"confirm": 640		
+	},
+	"2": {
+		"cuota": 213.34,
+		"cuotas": 3,
+		"ultimaQ": 213.34,
+		"tasa": 0.04,
+		"inicio": "2023-12-31",
+		"periodo": 2,
+		"residuo": 0.01,
+		"monto": 640,
+		"confirm": 640		
+	}	
+}

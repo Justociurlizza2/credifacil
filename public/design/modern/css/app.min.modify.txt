@@ -1,0 +1,7 @@
+rows>* 
+	max-width: deleted
+	width	 : deleted
+.app-search .input-group-text
+	z-index: 4 -> 3
+body[data-leftbar-theme=dark] .leftside-menu
+	background: #313a46 > #212036

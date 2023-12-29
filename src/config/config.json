@@ -1,0 +1,8 @@
+{
+    "dependencies": [
+        "jquery.min.js", "app.min.js", "app.dark.init.js",
+        "bootstrap.bundle.min.js", "simplebar.min.js",
+        "sidebarmenu.js","theme.js", "owl.carousel.min.js",
+        "dashboard3.js"
+    ]
+}

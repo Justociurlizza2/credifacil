@@ -1,0 +1,41 @@
+::-webkit-scrollbar {
+    display: none; 
+}
+:root {
+    --wiedens : #00da4d;
+    --wiedensB: #3636d2;
+    --bg-stat : #6c757d;
+}
+.flex { display: flex; align-items: center; flex-wrap: wrap }
+.flej { display: flex; justify-content: center }
+.flec { display: flex; justify-content: center; align-items: center!important }
+.fleb { display: flex; justify-content: space-between; align-items: center }
+.grid { display: grid; align-items: center } */
+.f-14 { font-size: 14px!important } .f-16 { font-size: 16px!important }
+.f-18 { font-size: 18px!important }
+.f-30 { font-size: 30px!important }.f-36 { font-size: 36px!important; cursor: pointer }
+.ht-50 { height: 50px; overflow-y: scroll; }
+.z-1  { z-index: 1 } .z-2  { z-index: 2 } .z-5  { z-index: 5 }
+.hide { display: none; } .shown { display: block; } 
+.tohide:focus { display: none; }
+.tohide:active { display: none; }
+
+/*______________________________ Notifications ______________________________*/
+.counter {
+    width: 20px; height: 20px; border-radius: 50%; text-align: center; line-height: 20px; z-index:2;
+    background-color: rebeccapurple; color: #fff;
+    position: absolute; left: 38px;
+}
+.popup {
+    display: block; position: absolute; right: 5px; top: 98px; width: 330px; transition: .8s; font-size: 14px; letter-spacing: -0.3px;
+    /* background: #ece9f3;  */
+    color: #0e25a9; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0, .1); z-index: 2;
+}
+.popup-header {  display: flex; justify-content: flex-end; position: absolute; right: 5px }
+.popup-header button { cursor: pointer; font-size: 24px; background: transparent; width: 28px; height: 28px; line-height: 26px; border:none}
+.popup-header #close:hover { background:#fff; border-radius:15px; transition: .3s }
+.popup-body { 
+    display: flex; justify-content: space-evenly; align-items: center; 
+}
+.popup#hide { opacity: 0; transform: scale(.6); pointer-events: none; position: fixed }
+.popup#show { opacity: 1; transform: scale(1); pointer-events: visible; display: block; z-index: 1061; position: fixed }

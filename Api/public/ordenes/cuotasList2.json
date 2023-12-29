@@ -1,0 +1,49 @@
+{
+	"cronograma": [
+		{
+			"cuota": 110.5,
+			"cuotas": 3,
+			"ultimaQ": 110.5,
+			"residuo": 0,
+			"monto": 331.5,
+			"idc": 0,
+			"tasa": 15,
+			"tipo": 30,
+			"plazo": 21,
+			"inicio": "2024-01-03",
+			"credito": 300,
+			"periodo": 7,
+			"confirm": 331.5			
+		},
+		{
+			"cuota": 110.5,
+			"cuotas": 3,
+			"ultimaQ": 110.5,
+			"residuo": 0,
+			"monto": 331.5,
+			"idc": 0,
+			"tasa": 15,
+			"tipo": 30,
+			"plazo": 21,
+			"inicio": "2024-01-10",
+			"credito": 300,
+			"periodo": 7,
+			"confirm": 331.5			
+		},
+		{
+			"cuota": 110.5,
+			"cuotas": 3,
+			"ultimaQ": 110.5,
+			"residuo": 0,
+			"monto": 331.5,
+			"idc": 0,
+			"tasa": 15,
+			"tipo": 30,
+			"plazo": 21,
+			"inicio": "2024-01-17",
+			"credito": 300,
+			"periodo": 7,
+			"confirm": 331.5			
+		}		
+	]	
+}

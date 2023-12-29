@@ -1,0 +1,1 @@
+console.log('jsp-coding-assets')

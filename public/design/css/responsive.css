@@ -1,0 +1,112 @@
+@media (max-width: 767px){
+    .navad {
+        width: 100vw;
+        padding: 0 20px;
+        position: fixed;
+        z-index: 3;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+    .search-results { width: 100%; margin-left: 0 }
+    .navad-home { top: inherit }
+    /* .home__section .card {
+        position: absolute;
+        left: -20px;
+        right: -20px;
+    } */
+    aside.sidebar {
+        position: fixed;
+        z-index: 2;
+        max-height: calc(100vh - 60px);
+        top: 60px;
+        bottom: 0;
+        overflow: auto;
+        left: -240px;
+        -webkit-transition: all 0.25s ease-out;
+        -o-transition: all 0.25s ease-out;
+        transition: all 0.25s ease-out;
+    }
+    .home__section {
+        background: #F5F7FF;
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+        left: 0%;
+        /* width: calc(100% - 240px); */
+        /* left: 240px; */
+        transition: all 0.5s ease;
+    }
+    aside.active, .sidebar.active {
+        width: 240px; left: 0; max-height: 100%;
+    }
+    .sidebar.active ~ .home__section {
+        width: calc(100%);
+        left: 0;
+    }
+    .sidebar {
+        min-height: calc(100vh - 60px);
+        font-family: "Nunito", sans-serif;
+        font-weight: 500;
+        padding: 0;
+        width: 240px;
+        z-index: 11;
+        transition: width 0.25s ease, background 0.25s ease;
+        -webkit-transition: width 0.25s ease, background 0.25s ease;
+        -moz-transition: width 0.25s ease, background 0.25s ease;
+        -ms-transition: width 0.25s ease, background 0.25s ease;
+    }
+    .home__section nav {
+        width: 100%;
+        position: fixed; z-index: 3;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+    #formEmpresa > :first-child{ margin-bottom: -40px}
+    /*_______________________ Cuponiks _______________________*/
+    .body_panel {
+        margin: 0px;
+    }
+    .cuponik a{
+        margin: 0;
+        grid-template-columns: 190px;
+        grid-template-rows: 130px 100px 140px;
+        box-shadow: 3px 3px 10px #a9a6a6;
+    }
+    /*_______________________ Categories _______________________*/
+    #list_categories { display: inline-table; padding-left: 30px } 
+    #list_categories .seccion { width: 25%; margin-bottom: 10px }
+    #list_categories .seccion a { width: 97% } 
+    #list_categories .seccion a .title-category { font-size: 0.8rem } 
+
+
+    /*_______________________ Widgets Plataforma _______________________*/
+    .navigation { left: -30px }
+    .navigation ul li a .icon { right: -15px } 
+    .header_cupon { display: block }
+    .header_cupon .empr { padding: 1%!important; max-height: 360px }
+    .header_cupon .back {width: 100% }
+    .activeCuponik { width: 410px; height: 103%; border: 10px solid #000 }
+    #button .mobile { width: 160px }
+    #list { width: 100% }
+    #list .custom-card { width: 48%; margin: 8px 1% } 
+    #list .foto img { height: 120px }
+    #list article.custom-card .card-content .card-body .product-container { display: grid }
+    .lineas__banner { height: 200px!important }
+    .header_cupon #slider_product img { width: 100% }
+    /* .ps-cart--mini .ps-cart__content { right: -20px } */
+
+    .payment_cards, .payment_cards1 { width: 50%; height: 120px }
+}
+@media (max-width: 524px){ 
+    .hd_mycuponik > a > div, .hd_mycuponik2 > a > div { display: grid; height: 50px }
+    .spanPreview { padding: 0; }
+    .voucher-details i { position: absolute }
+    .voucher-details .fa-caret-left { left: 0%; }
+    .voucher-details .fa-caret-right { right: 0%; }
+    .pmob { padding: 65px 0; } .pmob-0 { padding: 0!important } .pmob-15 { padding: 15px!important }
+    .mb-mob-20 { margin-bottom: 20px; }
+    .g-mob { display: grid; align-items: center }
+    .p1-bn-mob { padding: .375rem!important; border: none!important }
+}

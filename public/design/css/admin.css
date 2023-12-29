@@ -1,0 +1,6 @@
+.settup:hover {
+	cursor: pointer;
+    transform: scale(1.1);
+    transition: 1s;
+    background: rgb(53, 68, 205);
+}

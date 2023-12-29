@@ -1,0 +1,5 @@
+@media (max-width: 524px){ 
+    .g-mob { display: grid; align-items: center }
+    .w-mob { width:100%!important;background: crimson; }
+    .rebe  { background:rgb(103, 52, 154) }
+}

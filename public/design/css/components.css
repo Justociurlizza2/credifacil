@@ -1,0 +1,36 @@
+.pagenumbers {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+.pagenumbers button {
+	width: 45px;
+	height: 45px;
+	appearance: none;
+	border: none;
+	/* outline: none; */
+	cursor: pointer;
+	background-color: #49a2d6;
+	margin: 5px;
+	transition: 0.4s;
+	color: #2b1a1a;
+	font-size: 20px;
+	text-shadow: 0px 0px 4px rgba(0,0,0, 0.2);
+	box-shadow: 0px 0px 2px 2px #67f8fc;
+	border-radius: 10px;
+}
+.pagenumbers button:hover{
+	background-color: #44EEAA;
+}
+.pagenumbers button.active{
+	background-color: #ce2fb3;
+	color: #fff;
+	box-shadow: inset 0px, 0px, 4px, rgba(211, 15, 168, 0.89);
+}
+/* lastView */
+#lastView {
+	position: fixed; z-index: 99;
+	background: rebeccapurple;
+	bottom: 10px; left: 15px;
+}
