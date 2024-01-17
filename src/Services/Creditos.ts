@@ -2,6 +2,7 @@ import { Credito } from '../Models/Credito.js';
 import { Cuota } from '../Models/Cuota.js';
 import { Cliente } from '../Models/Cliente.js';
 import { CreditoView } from '../Views/CreditoView.js';
+import { base } from '../Types/CreditoType.js';
 import {Global} from '../../public/js/Helpers/exGlobal.js';
 import {Helper} from '../../public/js/Helpers/exHelper.js';
 import {Utils} from '../../public/js/Utils/exUtils.js';
@@ -60,9 +61,11 @@ async function newCredito ()
     const con = await credito.create(data)
     if(con.status !== 200) { global.errorPopup('danger', con.body); return {}}
                              global.errorPopup('success', '¡Muy bien! '+ con.body)
+    console.log('new-credit', con.body)
     return con.body
 }
 /*----------------------- Renderizado  -----------------------*/
+utils.setProperties(form, base);
 const lastView = <HTMLElement>document.getElementById('lastView');
 const creditoView = new CreditoView();
 credito.find('/findlike?link=id&equal').then(r => {

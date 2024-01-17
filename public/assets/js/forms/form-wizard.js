@@ -30,9 +30,9 @@ form.children("div").steps({
         form.validate().settings.ignore = ":disabled";
         return form.valid();
     },
-    onFinished: function (event, currentIndex) {
-        alert("Submitted!");
-    },
+    // onFinished: function (event, currentIndex) {
+    //     alert("Submitted!");
+    // },
 });
 
 // Advance Example
@@ -76,9 +76,9 @@ form
             form.validate().settings.ignore = ":disabled";
             return form.valid();
         },
-        onFinished: function (event, currentIndex) {
-            alert("Submitted!");
-        },
+        // onFinished: function (event, currentIndex) {
+        //     alert("Submitted!");
+        // },
     })
     .validate({
         errorPlacement: function errorPlacement(error, element) {
@@ -115,14 +115,14 @@ $(".tab-wizard").steps({
     transitionEffect: "fade",
     titleTemplate: '<span class="step">#index#</span> #title#',
     labels: {
-        finish: "Submit",
+        finish: "Procesar",
     },
-    onFinished: function (event, currentIndex) {
-        swal(
-            "Form Submitted!",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed."
-        );
-    },
+    // onFinished: function (event, currentIndex) {
+    //     swal(
+    //         "Form Submitted!",
+    //         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed."
+    //     );
+    // },
 });
 
 var form = $(".validation-wizard").show();
@@ -133,7 +133,7 @@ $(".validation-wizard").steps({
     transitionEffect: "fade",
     titleTemplate: '<span class="step">#index#</span> #title#',
     labels: {
-        finish: "Submit",
+        finish: "Procesar",
     },
     onStepChanging: function (event, currentIndex, newIndex) {
         return (

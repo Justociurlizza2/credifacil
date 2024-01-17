@@ -57,7 +57,8 @@ export class CuotaView {
                             </div>
                         </div>
                         <div>
-                            <button type="button" class="justify-content-center w-100 btn mb-1 bg-success-subtle text-success font-medium d-flex align-items-center">
+                            <button type="button" class="justify-content-center w-100 btn mb-1 bg-success-subtle text-success font-medium d-flex align-items-center
+                                settup" ide="${cuota.id}">
                                 <i class="ti ti-coin fs-6 me-2"></i>
                                 Cobrar
                             </button>
@@ -74,11 +75,11 @@ export class CuotaView {
         });
         render.innerHTML = print;
         this.paginator.selectorResources();
+        this.selectResource(4);
     }
     viewcuota(cuota) {
         utils.setProperties(form, cuota);
-        utils.printProperties(cuotaDetalle, cuota.cuota);
-        console.log('cliente', cuota.cliente);
+        utils.printProperties(cuotaDetalle, cuota);
         const cliente = document.getElementById('cliente');
         const nrodoc = document.getElementById('numero');
         cliente.value = cuota.cliente.razon;
@@ -96,12 +97,12 @@ export class CuotaView {
         });
     }
     swithView() {
-        if (renderDiv.style.display == 'flex') {
+        if (renderDiv.style.display == '') {
             renderDiv.style.display = 'none';
-            renderform.style.display = 'flex';
+            renderform.style.display = '';
         }
         else {
-            renderDiv.style.display = 'flex';
+            renderDiv.style.display = '';
             renderform.style.display = 'none';
         }
     }

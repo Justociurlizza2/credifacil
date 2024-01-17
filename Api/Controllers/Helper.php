@@ -22,7 +22,10 @@ class Helper {
     {
         return (object) [
             'table' => $Object->table?? $Object->access,
-            'params'=> [ 'link'  => $key, "equal" => $Object->data[$key]?? $Object->$key ],
+            'params'=> [ 
+                'link'  => $key, 
+                'equal' => $Object->data[$key]?? $Object->$key?? helper::http('especifique '.$key) 
+            ],
             'data'  => $Object->data?? []
         ];
     }

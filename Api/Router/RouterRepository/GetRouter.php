@@ -1,8 +1,8 @@
 <?php
 namespace Router\RouterRepository;
 use Router\RouterRepository\RouterRepository;
-use App\Factory\DatabaseFactory\DatabaseFactory;
-use App\Factory\DatabaseFactory\MysqlDbFactory;
+use Router\RouterRepository\Bridge\GetBridge;
+
 use Router\Models\Router;
 use App\Middleware\Middleware;
 use Controllers\GetController;
@@ -13,9 +13,11 @@ class GetRouter implements RouterRepository
     private $DBconector;
     public function __construct(private Router $router, private $APItoken)
     {
-        $MysqlFactory = new MysqlDbFactory($this->APItoken->DBparams);
-        $MysqlConnector = DatabaseFactory::save($MysqlFactory);
-        $this->DBconector = $MysqlConnector;
+    }
+    
+    public function setBridge(): void
+    {
+        $this->DBconector = GetBridge::getDBconnector($this->APItoken);
     }
     public function consistency (): void 
     {

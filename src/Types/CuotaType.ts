@@ -1,5 +1,5 @@
 export type CuotaType = {
-    readonly codigo?: number,
+    readonly codigo: number,
     readonly idc?: number,
              credito: number,
              tasa: number,

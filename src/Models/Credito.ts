@@ -19,7 +19,7 @@ export class Credito {
     }
     create (credito: CreditoType): any
     {
-        this.uri = this.api
+        this.uri = this.api+'/create'
         let body = JSON.stringify(credito)
         return this.fetch({method: 'POST', body})
     }
@@ -37,6 +37,7 @@ export class Credito {
         options.headers = iAuth.getHeaders()
         const resp = await fetch(this.uri, options)
         .then(r => r.json())
+        console.log('new-credito', resp)
         return resp;
     }
 }

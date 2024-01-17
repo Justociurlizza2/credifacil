@@ -1,51 +1,53 @@
 <?php
 namespace Router\RouterRepository;
+use Router\RouterRepository\Bridge\PostBridge;
 use Router\RouterRepository\RouterRepository;
-use App\Factory\DatabaseFactory\DatabaseFactory;
-use App\Factory\DatabaseFactory\MysqlDbFactory;
 use Router\Models\Router;
 use App\Middleware\Middleware;
 use Controllers\PostController;
 use Controllers\Helper;
-use App\Factory\AccountFactory\AccountFactory;
-use App\Cuota;
 
 class PostRouter implements RouterRepository
 {
-    private $DBconector;
+    private string $instance = '';
+    private object $DBconector;
     public function __construct(private Router $router, private Object $APItoken)
     {
-        $MysqlFactory = new MysqlDbFactory($this->APItoken->DBparams);
-        $MysqlConnector = DatabaseFactory::save($MysqlFactory);
-        $this->DBconector = $MysqlConnector;
+    }
+
+    public function setBridge(): void
+    {
+        $this->instance   = PostBridge::getInstance($this->router);
+        $this->DBconector = PostBridge::getDBconnector($this->APItoken);
     }
     public function consistency (): void 
     {
         $dbtable = PostController::getColumnsData($this->DBconector, $this->router);
         $cols = array_map(fn($c) => $c->item, $dbtable); array_shift($cols);
-        // helper::http($this->router, 402);
-        foreach (array_keys($this->router->data) as $k => $camp) Helper::notBelong($cols, $camp, 'Propiedades no coinciden');
+        foreach (array_keys($this->router->data) as $k => $camp)
+            Helper::notBelong($cols, $camp, 'Propiedades no coinciden');
     }
-    public function getPermission (): void 
+    public function getPermission (): void
     {
         Middleware::permissions($this->router, $this->APItoken, $this->DBconector);
     }
     public function Routing (): void 
     {
         $function = $this->router->uri[1] ?? 'create';
-        if(in_array($this->router->uri[0], ['cuotas', 'creditos'])) {
-            $instance = match ($this->router->uri[0]) {
-                'cuotas'   => 'App\\Cuota',
-                'creditos' => 'App\\Credito'
-            };
-            // helper::http($instance);
-            $business = new $instance($this->router, $this->APItoken);
-            $business -> $function();
+        if( str_contains($this->instance, 'Repository'))
+        {
+            // var_dump($this->router); exit;
+            $repo = $this->instance.'CreditoRepository\CreditoStandard';
+            $busi = $this->instance.'Services\CreditoManager';
+            $repository = new $repo($this->router, $this->APItoken);
+            $manager    = $busi::$function($repository);
         }
-        
-        PostController::$function(
-            $this->DBconector,
-            $this->router
-        );
+        if( str_contains($this->instance, 'Factory'))
+        {
+            $factory = $this->instance::init($this->router, $this->APItoken);
+            $factory->$function();
+        }
+        $business = new $this->instance($this->router, $this->APItoken);
+        $business -> $function();
     }
 }

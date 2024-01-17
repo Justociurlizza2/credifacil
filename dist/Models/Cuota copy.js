@@ -1,13 +1,13 @@
 import { Auth } from '../Auth.js';
 let iAuth = new Auth();
-export class Credito {
+export class Cuota {
     constructor() {
-        this.api = 'https://credifacil.wiedens.com/Api/creditos';
+        this.api = 'https://credifacil.wiedens.com/Api/cuotas';
         this.uri = this.api;
     }
-    create(credito) {
-        this.uri = this.api + '/create';
-        let body = JSON.stringify(credito);
+    calculate(cuota) {
+        let body = JSON.stringify(cuota);
+        this.uri = this.api + '/micuota';
         return this.fetch({ method: 'POST', body });
     }
     index() {
@@ -21,8 +21,7 @@ export class Credito {
         options.headers = iAuth.getHeaders();
         const resp = await fetch(this.uri, options)
             .then(r => r.json());
-        console.log('new-credito', resp);
         return resp;
     }
 }
-//# sourceMappingURL=Credito.js.map
+//# sourceMappingURL=Cuota%20copy.js.map

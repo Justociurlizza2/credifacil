@@ -1,19 +1,23 @@
 <?php
 namespace App;
 use App\Strategy\WriterStrategy\SystemWriter;
+use App\Factory\CuotaFactory\CuotaFactory;
+use App\Factory\CuotaFactory\Cuota;
 use Controllers\Helper;
-use App\Cuota;
 
 class Cronograma {
     private object $headCuota;
     public string $inicioPago;
     public string $findelPago;
-    public function __construct ()
+    public float $monto;
+    public function __construct (private int $codigoCredito)
     {
     }
-    public function programar(Cuota $cuota): object
+    public function programar(CuotaFactory $cuotaFactory): object
     {
+        $cuota = new Cuota($cuotaFactory->router, $cuotaFactory->APIkey);
         $this->headCuota  = $cuota->calculate();
+        $this->monto      = $this->headCuota->monto;
         $this->inicioPago = $this->headCuota->inicio;
         $this->inicioPago = date('Y-m-d', strtotime($this->inicioPago));
         return $this->builder();
@@ -40,6 +44,7 @@ class Cronograma {
         $builder = clone $this->headCuota;  /* Clonamos para no alterar cuota cabecera */
         $builder-> inicio = $fecha;
         $builder-> cuota  = $money;
+        $builder-> idce   = $this->codigoCredito;
         return $builder;
     }
     private function getCalendar(): array

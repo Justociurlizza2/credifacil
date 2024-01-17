@@ -53,7 +53,7 @@ class PostController{
         $response = PostModel::postData($conector, $router);
         $return = PostController::fncResponse($response, "postData", null);
     }
-    public function postRegister($table, $data){
+    public function register($table, $data){
         if(isset($data['password']) && $data['password'] != null){
             $crypt = crypt($data['password'], '$2a$07$byxqpwe4x781sdsty88p$');
             $data['password'] = $crypt;
@@ -61,7 +61,7 @@ class PostController{
             $return = PostController::fncResponse($response, "postRegister", null);
         }
     }
-    static function postLogin($table, $router) {   
+    static function login($table, $router) {   
         $router->table = $table;
         $router->params = [ 'link'  => 'usuario', 'equal' => $router->data['usuario'] ];
         // $dbname = isset($router->data['ruc']) ? 'bret'.$router->data['ruc'] : 'api.pe.bretsia';

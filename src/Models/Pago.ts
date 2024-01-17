@@ -11,16 +11,17 @@ type HttpRequest = {
     body?: string,
     headers?: HeadersInit
 }
-export class Cuota {
-    public api = 'https://credifacil.wiedens.com/Api/cuotas';
+export class Pago {
+    public api = 'https://credifacil.wiedens.com/Api/pagos';
     private uri: string = this.api;
     constructor()
     {
     }
-    calculate (cuota: CuotaType): any
+    create (cuota: CuotaType): any
     {
+        this.uri = this.api + '/pagar'
+        console.log('data-pago', cuota)
         let body = JSON.stringify(cuota)
-        this.uri = this.api + '/micuota';
         return this.fetch({method: 'POST', body})
     }
     index(): any
@@ -37,7 +38,7 @@ export class Cuota {
         options.headers = iAuth.getHeaders()
         const resp = await fetch(this.uri, options)
         .then(r => r.json())
-        // console.log('cuotas', resp)
+        console.log('resp-pago', resp)
         return resp;
     }
 }

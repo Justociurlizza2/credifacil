@@ -21,7 +21,6 @@ export class Cuota {
         options.headers = iAuth.getHeaders();
         const resp = await fetch(this.uri, options)
             .then(r => r.json());
-        console.log('cuotas', resp);
         return resp;
     }
 }

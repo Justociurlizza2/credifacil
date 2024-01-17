@@ -35,8 +35,6 @@ export class Helper {
                     cliente.value   = cli.getAttribute('name')
                     numero.value    = cli.getAttribute('doc')
                     idc.value       = cli.getAttribute('id')
-                    console.log('idc', idc)
-                    console.log('compras', cli.getAttribute('comp'))
                     if(document.getElementById('compras')) compras.innerHTML = cli.getAttribute('comp')
                     // compras.innerHTML = drop.getAttribute('money')
                 }

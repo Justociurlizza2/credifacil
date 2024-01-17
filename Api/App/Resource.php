@@ -8,7 +8,8 @@ class Resource {
         $agents = [   
             'idc'   =>  (object)['table' => 'clientes', 'name' => 'cliente', 'link' => 'id'],
             'idu'   =>  (object)['table' => 'usuarios', 'name' => 'usuario', 'link' => 'id'],
-            'idcu'  =>  (object)['table' => 'cuotas', 'name' => 'cuota', 'link' => 'codigo'],
+            'idce'  =>  (object)['table' => 'creditos', 'name' => 'credito', 'link' => 'codigo'],
+            'idcu'  =>  (object)['table' => 'cuotas',   'name' => 'cuota',   'link' => 'codigo'],
         ];
         foreach ($data as $i => $res) {
             $res = json_decode(json_encode($res), true);

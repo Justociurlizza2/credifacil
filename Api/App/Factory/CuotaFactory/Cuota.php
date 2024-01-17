@@ -1,8 +1,10 @@
 <?php
-namespace App;
+namespace App\Factory\CuotaFactory;
 use App\Factory\DatabaseFactory\DatabaseFactory;
 use App\Factory\DatabaseFactory\MysqlDbFactory;
 use Models\PostModel;
+use Models\PutModel;
+use Models\GetModel;
 use Controllers\Helper;
 use App\Tasa;
 
@@ -16,11 +18,26 @@ class Cuota {
     private float $residuo = 0.00;
     private Array $data;
     private Object $DBconnector;
-    public function __construct(public $router, public $APItoken)
+    public function __construct(private $router, public $APItoken)
     {
         $this->data = $router->data;
-        $this->initTasa($this->data['tasa'], $this->data['tipo'], $this->data['plazo']);
         $this->DBconnector = DatabaseFactory::save(new MysqlDbFactory());
+    }
+    public function create(): void
+    {
+        PostModel::postData($this->DBconnector, $this->router);
+    }
+    public function pagar(): void
+    {
+        $this->router->data = ['stat' => 5, 'codigo' => $this->data['codigo']];
+        $params = helper::builderQueryParams((object)$this->router, 'codigo');
+        PutModel::update($this->DBconnector, $params);
+    }
+    public function getCuota(): object
+    {
+        $this->router->table = 'cuotas';
+        $params = helper::builderQueryParams((object)$this->router, 'codigo');
+        return GetModel::getFilterData($this->DBconnector, $params)[0];
     }
     public function micuota(): http_response_code
     {
@@ -29,6 +46,7 @@ class Cuota {
     }
     public function calculate (): object
     {
+        $this->initTasa($this->data['tasa'], $this->data['tipo'], $this->data['plazo']);
         $this->calcMonto();
         $this->calcCuotas();
         $this->calcCuota();

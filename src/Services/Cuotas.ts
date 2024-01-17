@@ -1,4 +1,5 @@
 import { Cuota } from '../Models/Cuota.js';
+import { Pago }  from '../Models/Pago.js';
 import { Cliente } from '../Models/Cliente.js';
 import { CuotaView } from '../Views/CuotaView.js';
 import {Global} from '../../public/js/Helpers/exGlobal.js';
@@ -6,6 +7,7 @@ import {Helper} from '../../public/js/Helpers/exHelper.js';
 import {Utils} from '../../public/js/Utils/exUtils.js';
 
 export default class Cuotas{}
+const pago = new Pago();
 const cuota = new Cuota();
 const client = new Cliente();
 const global = new Global();
@@ -30,26 +32,21 @@ function calcPlazo () {
     p.value = `${calc}`
 }
 /*------------------ Process ------------------*/
-const buttonCuota   = <HTMLElement>document.getElementById('buttonCuota');
-const buttonPago = <HTMLElement>document.getElementById('buttonPago');
-// buttonCredito.onclick = () => { newPago() }
-buttonCuota.onclick = () => {
-    getCuota().then((r) => printCuota(r))
-}
-async function getCuota ()
+const buttonPago   = <HTMLElement>document.getElementById('buttonPago');
+buttonPago.onclick = () => { newPago() }
+async function newPago()
 {
     let data = utils.getProperties(form);
     delete data.id
-    const calc = await cuota.calculate(data)
-        if(calc.status !== 200) { global.errorPopup('danger', calc.body); return {}}
-                                  global.errorPopup('success', 'Cuota generada: s/ '+ calc.body.cuota)
-        quota = calc.body
-        return quota;
-}
-function printCuota(quota: object)
-{
-    if(!quota) return
-    utils.printProperties(cuotaDt, quota)
+    delete data.idc
+    console.log('props', data)
+    // let data = { codigo: props.codigo }
+    // console.log('data', data)
+    // return
+    const con = await pago.create(data)
+    if(con.status !== 200) { global.errorPopup('danger', con.body); return {}}
+                             global.errorPopup('success', '¡Muy bien! '+ con.body)
+    return con.body
 }
 /*------------------------- Filtrado -------------------------*/
 

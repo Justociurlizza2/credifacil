@@ -140,7 +140,7 @@
                                         <div class="input-group mb-3">
                                             <button class="btn bg-info-subtle text-info font-medium"
                                                 type="button">n°</button>
-                                            <input type="number" value=7 min="1" class="form-control" id="nlapsos" time
+                                            <input type="number" value=30 min="1" class="form-control" id="nlapsos" time
                                                 placeholder="" aria-label="" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
@@ -183,7 +183,7 @@
                                         </div>
                                         <div class="input-group">
                                             <input type="text" class="form-control" id="inicio" idata
-                                                placeholder="dd/mm/yyyy" />
+                                                placeholder="dd-mm-yyyy" />
                                             <span class="input-group-text">
                                                 <i class="ti ti-calendar fs-5"></i>
                                             </span>
@@ -196,7 +196,7 @@
                                         <div class="input-group mb-3">
                                             <button class="btn bg-info-subtle text-info font-medium"
                                                 type="button">n°</button>
-                                            <input type="number" value="7" class="form-control" id="plazo" idata
+                                            <input type="number" value="30" class="form-control" id="plazo" idata
                                                 placeholder="autocalculable" aria-label=""
                                                 aria-describedby="basic-addon1" readonly>
                                         </div>
